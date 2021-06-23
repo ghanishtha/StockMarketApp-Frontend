@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { Form, FormGroup, Input, Label, Col, Button } from "reactstrap";
 import axios from "axios";
-import BASE_URL from "../services/NetworkRequests";
+import BASE_URL from "../../services/NetworkRequests";
+//import { useHistory } from "react-router-dom";
 const  AddCompany = () => {
 
+    //let history = useHistory();
     useEffect(() => {
         document.title = "Add Company";
     }, []);
@@ -15,6 +17,7 @@ const  AddCompany = () => {
         console.log(company);
         postDataToServer(company);
         e.preventDefault();
+        //history.push('/addCompany');
     }
 
     //creating function to post data to server
@@ -81,7 +84,7 @@ const  AddCompany = () => {
                 </FormGroup>
                 <FormGroup row>
                     <Col>
-                        <Button type="submit" color="success">Add Company</Button>
+                        <Button type="submit" color="success" >Add Company</Button>
                     </Col>
                 </FormGroup>
             </Form>

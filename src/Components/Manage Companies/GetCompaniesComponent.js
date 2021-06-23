@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import {Button, Table} from 'reactstrap';
 import axios from 'axios';
-import BASE_URL from '../services/NetworkRequests';
+import BASE_URL from '../../services/NetworkRequests';
+import { useHistory, Link } from 'react-router-dom';
 
 const GetCompaniesComponent = () => {
+
+    let history = useHistory();
 
     /*constructor(props){
         super(props);
@@ -33,7 +36,6 @@ const GetCompaniesComponent = () => {
 
     const [companies, setCompanies] = useState([]);
 
-
     return(
         <div>
             <h1 className="text-center"> Companies List</h1>
@@ -62,7 +64,10 @@ const GetCompaniesComponent = () => {
                                 <td>{company.boardOfDirectors}</td>
                                 <td>{company.turnover}</td>
                                 <td>{company.writeUp}</td>
-                                <td><Button color="warning" outline>Update</Button></td>
+                                <Link to={{
+                                    pathname: `/updateCompany/${company.id}`,
+                                    state: company.id
+                                }}><td><Button color="warning" outline>Update</Button></td></Link>
                             </tr>
                         )
                     }
@@ -70,7 +75,9 @@ const GetCompaniesComponent = () => {
                 </tbody>
             </Table>
 
-            <Button>Add Company</Button>
+            <Button onClick={()=> {
+                history.push('/addCompany');
+            }}>Add Company</Button>
         
         </div>
     )

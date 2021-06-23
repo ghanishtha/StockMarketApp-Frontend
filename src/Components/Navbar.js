@@ -22,11 +22,19 @@ const NavbarComponent = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/companies">Companies</NavLink>
+              <NavLink href="/importData">Import Data</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/addCompany">Add Company</NavLink>
+              <NavLink href="/companies">Manage Companies</NavLink>
             </NavItem>
+            <NavItem>
+              <NavLink href="/sectors">Manage Sectors</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/stockExchanges">Manage Stock Exchanges</NavLink>
+            </NavItem>
+
+
           </Nav>
         </Collapse>
       </Navbar>
